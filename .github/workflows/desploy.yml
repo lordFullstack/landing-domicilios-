@@ -63,4 +63,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Print deployment URL
-        run: echo "✅ Deployed to: https://${{ github.repository_owner }}.github.io/landing-domicilios-"
+        run: 'echo "✅ Deployed to: https://${{ github.repository_owner }}.github.io/landing-domicilios-"'
