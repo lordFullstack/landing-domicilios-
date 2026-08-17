@@ -47,7 +47,7 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-          VITE_BASE_URL: /loop-maestro-mvp/
+          VITE_BASE_URL: /landing-domicilios-/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -63,4 +63,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Print deployment URL
-        run: echo "✅ Deployed to: https://${{ github.repository_owner }}.github.io/loop-maestro-mvp"
+        run: echo "✅ Deployed to: https://${{ github.repository_owner }}.github.io/landing-domicilios-"
