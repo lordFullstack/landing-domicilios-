@@ -15,6 +15,22 @@
       content="Domicilios Riohacha conecta clientes, restaurantes y domiciliarios. Pide comida, registra tu restaurante o empieza a repartir hoy."
     />
     <title>Domicilios Riohacha | Pide, vende y entrega</title>
+    <script>
+      // Complemento del truco en 404.html: reconstruye la URL real a partir
+      // del querystring codificado antes de que React Router monte.
+      ;(function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?')
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          )
+        }
+      })(window.location)
+    </script>
   </head>
   <body>
     <div id="root"></div>

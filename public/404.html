@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+  GitHub Pages sirve archivos estáticos: si alguien recarga o entra directo a
+  una ruta interna (ej. /landing-domicilios-/register), no existe ese archivo
+  y GitHub muestra un 404 real. Este script reescribe la URL como querystring
+  y redirige a index.html, que la vuelve a armar (ver snippet en index.html).
+  Técnica estándar: https://github.com/rafgraph/spa-github-pages
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Domicilios Riohacha</title>
+    <script>
+      var pathSegmentsToKeep = 1 // 1 = respeta "/landing-domicilios-" como base
+
+      var l = window.location
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
