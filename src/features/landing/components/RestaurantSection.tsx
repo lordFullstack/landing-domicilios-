@@ -51,7 +51,7 @@ export const RestaurantSection = () => {
         <div className="mt-6 flex flex-col gap-3">
           {CARDS.map(({ icon: Icon, title, text }) => (
             <div key={title} className="flex items-start gap-3">
-              <span className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Icon className="w-4 h-4 text-primary" />
               </span>
               <div>

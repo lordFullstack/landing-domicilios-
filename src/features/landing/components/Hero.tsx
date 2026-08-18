@@ -58,7 +58,7 @@ export const Hero = () => {
 
           {/* Card flotante: pedido */}
           <div className="hidden sm:flex absolute -left-2 top-10 bg-white rounded-2xl shadow-card-hover px-4 py-3 items-center gap-2 animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none">
-            <span className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-lg">
+            <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-lg">
               🍔
             </span>
             <div>
