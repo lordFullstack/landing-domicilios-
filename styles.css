@@ -4,6 +4,9 @@
   --brand-500: #2e3a8c;
   --brand-50: #eef0fa;
   --sunset: linear-gradient(135deg, #1c2459 0%, #f4652c 62%, #ffc24b 100%);
+  /* Para lo que lleva texto blanco encima (botones, números, franja final): termina en un naranja más
+     profundo en vez del ámbar, para que el texto se lea (contraste mínimo 4.5:1). */
+  --sunset-btn: linear-gradient(135deg, #1c2459 0%, #cc4416 100%);
   --orange: #f4652c;
   --ink: #1c1917;
   --muted: #78716c;
@@ -38,7 +41,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn:active { transform: scale(.97); }
 .btn--sm { min-height: 40px; padding: 0 16px; font-size: .9rem; }
 .btn--lg { min-height: 52px; padding: 0 28px; font-size: 1.02rem; }
-.btn--primary { background: var(--sunset); color: #fff; box-shadow: 0 8px 24px rgba(244, 101, 44, .28); }
+.btn--primary { background: var(--sunset-btn); color: #fff; box-shadow: 0 8px 24px rgba(204, 68, 22, .28); }
 .btn--primary:hover { opacity: .92; }
 .btn--outline { background: #fff; color: var(--brand); border-color: var(--brand); }
 .btn--outline:hover { background: var(--brand-50); }
@@ -74,7 +77,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero { background: radial-gradient(1200px 500px at 85% -10%, #ffe3d1 0%, rgba(255, 227, 209, 0) 60%), var(--soft); overflow: hidden; }
 .hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 72px; }
 .eyebrow { font: 700 .8rem var(--font-display); text-transform: uppercase; letter-spacing: .12em; color: var(--orange); margin-bottom: 14px; }
-.grad { background: var(--sunset); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad { background: linear-gradient(135deg, #1c2459 0%, #cc4416 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { margin-top: 18px; font-size: 1.15rem; color: var(--muted-strong); max-width: 30em; }
 .cta-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
 .hint { margin-top: 16px; font-size: .9rem; color: var(--muted); }
@@ -95,7 +98,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .mini { background: var(--soft); border-radius: 14px; padding: 10px 4px; text-align: center; }
 .mini span { font-size: 1.4rem; }
 .mini p { font-size: .68rem; font-weight: 600; color: var(--muted-strong); margin-top: 2px; }
-.phone__fab { position: absolute; right: 12px; bottom: 14px; background: var(--sunset); color: #fff; font: 700 .78rem var(--font-display); padding: 12px 16px; border-radius: 999px; box-shadow: 0 10px 22px rgba(244, 101, 44, .35); }
+.phone__fab { position: absolute; right: 12px; bottom: 14px; background: var(--sunset-btn); color: #fff; font: 700 .78rem var(--font-display); padding: 12px 16px; border-radius: 999px; box-shadow: 0 10px 22px rgba(204, 68, 22, .35); }
 
 .float { position: absolute; display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px 16px; border-radius: 18px; box-shadow: 0 14px 34px rgba(28, 36, 89, .16); animation: bob 6s ease-in-out infinite; }
 .float span { font-size: 1.4rem; }
@@ -126,7 +129,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .how { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .how li { background: var(--soft); border-radius: var(--radius); padding: 26px; }
-.num { width: 44px; height: 44px; border-radius: 50%; background: var(--sunset); color: #fff; font: 700 1.05rem var(--font-display); display: grid; place-items: center; margin-bottom: 16px; }
+.num { width: 44px; height: 44px; border-radius: 50%; background: var(--sunset-btn); color: #fff; font: 700 1.05rem var(--font-display); display: grid; place-items: center; margin-bottom: 16px; }
 .how p { margin-top: 8px; color: var(--muted-strong); }
 
 .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
@@ -136,7 +139,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .domi { margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .checks { margin: 32px 0; display: grid; gap: 10px; max-width: 40em; }
 .checks li { padding-left: 30px; position: relative; color: var(--muted-strong); }
-.checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--sunset); color: #fff; font-size: .75rem; font-weight: 800; display: grid; place-items: center; }
+.checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--sunset-btn); color: #fff; font-size: .75rem; font-weight: 800; display: grid; place-items: center; }
 
 .roles { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .roles .card { display: flex; flex-direction: column; }
@@ -152,7 +155,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .download { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .install { display: grid; gap: 12px; counter-reset: step; }
 .install li { counter-increment: step; position: relative; padding: 16px 18px 16px 62px; background: rgba(255, 255, 255, .08); border-radius: 18px; color: rgba(255, 255, 255, .92); }
-.install li::before { content: counter(step); position: absolute; left: 16px; top: 14px; width: 32px; height: 32px; border-radius: 50%; background: var(--sunset); font: 700 .95rem var(--font-display); display: grid; place-items: center; color: #fff; }
+.install li::before { content: counter(step); position: absolute; left: 16px; top: 14px; width: 32px; height: 32px; border-radius: 50%; background: var(--sunset-btn); font: 700 .95rem var(--font-display); display: grid; place-items: center; color: #fff; }
 .install__tip { background: rgba(255, 194, 75, .14) !important; }
 .install__tip::before { content: "!" !important; }
 .install b { color: #fff; }
@@ -173,7 +176,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .faq details p { padding: 0 0 20px; color: var(--muted-strong); max-width: 40em; }
 
 /* ───── CTA final y pie ───── */
-.final { background: var(--sunset); color: #fff; padding: 76px 0; text-align: center; }
+.final { background: var(--sunset-btn); color: #fff; padding: 76px 0; text-align: center; }
 .final h2 { color: #fff; max-width: none; }
 .final p { margin: 12px 0 28px; font-size: 1.1rem; opacity: .95; }
 .footer { background: #12173d; color: rgba(255, 255, 255, .8); padding: 40px 0; font-size: .92rem; }
