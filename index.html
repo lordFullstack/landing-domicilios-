@@ -1,39 +1,245 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <meta
-      name="description"
-      content="Domicilios Riohacha conecta clientes, restaurantes y domiciliarios. Pide comida, registra tu restaurante o empieza a repartir hoy."
-    />
-    <title>Domicilios Riohacha | Pide, vende y entrega</title>
-    <script>
-      // Complemento del truco en 404.html: reconstruye la URL real a partir
-      // del querystring codificado antes de que React Router monte.
-      ;(function (l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function (s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?')
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          )
-        }
-      })(window.location)
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domicilios Riohacha | Pide, manda y recibe en Riohacha</title>
+  <meta name="description" content="Pide a restaurantes de Riohacha, o mándale un mandado a un domiciliario con Domi. Sigue tu pedido en vivo y paga al recibir. Descarga la app para Android o úsala en el navegador." />
+  <meta name="theme-color" content="#1C2459" />
+  <link rel="icon" type="image/png" href="assets/favicon-64.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Domicilios Riohacha | Pide, manda y recibe" />
+  <meta property="og:description" content="Restaurantes locales y mandados con Domi, en una sola app. Seguimiento en vivo y pago al recibir." />
+  <meta property="og:image" content="assets/app-icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="header" id="top">
+    <div class="wrap header__row">
+      <a class="brand" href="#top" aria-label="Domicilios Riohacha, inicio">
+        <img src="assets/app-icon-192.png" alt="" width="36" height="36" />
+        <span>Domicilios Riohacha</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#domi">Domi</a>
+        <a href="#para-ti">Para negocios</a>
+        <a href="#descargar">Descargar</a>
+        <a class="btn btn--primary btn--sm nav__cta" href="https://domicilios-rouge.vercel.app/login" rel="noopener">Pedir ahora</a>
+      </nav>
+
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy reveal">
+          <p class="eyebrow">Riohacha, La Guajira</p>
+          <h1>Pide lo que quieras.<br /><span class="grad">Te lo llevamos.</span></h1>
+          <p class="lead">Restaurantes locales y mandados con un domiciliario, todo en una sola app. Sigue tu pedido en vivo y paga al recibir.</p>
+          <div class="cta-row">
+            <a class="btn btn--primary btn--lg" href="https://domicilios-rouge.vercel.app/login" rel="noopener">Pedir ahora</a>
+            <a class="btn btn--outline btn--lg" href="#descargar">Descargar para Android</a>
+          </div>
+          <p class="hint">Sin instalar nada si no quieres: funciona también en el navegador.</p>
+        </div>
+
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__top">
+                <img src="assets/rocket-icon-transparent.png" alt="" width="34" height="34" />
+                <div><strong>Domicilios</strong><span>Tu comida, más cerca</span></div>
+              </div>
+              <div class="phone__order">
+                <b>Tu pedido va en camino</b>
+                <div class="steps"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+                <small>Confirmado · Preparando · En camino</small>
+              </div>
+              <div class="phone__cards">
+                <div class="mini"><span>🍗</span><p>Asados</p></div>
+                <div class="mini"><span>🥤</span><p>Bebidas</p></div>
+                <div class="mini"><span>🍕</span><p>Pizza</p></div>
+              </div>
+              <div class="phone__fab">🛵 Pide tu Domi</div>
+            </div>
+          </div>
+          <div class="float float--a"><span>🛒</span><div><b>Domi de compra</b><small>Tarifa desde $5.000</small></div></div>
+          <div class="float float--b"><span>📍</span><div><b>Ubicación en vivo</b><small>Mira por dónde va</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIANZA -->
+    <section class="trust" aria-label="Ventajas">
+      <ul class="wrap trust__row">
+        <li>Restaurantes de Riohacha</li>
+        <li>Seguimiento en vivo</li>
+        <li>Pagas al recibir</li>
+        <li>Mandados con Domi</li>
+      </ul>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+      <div class="wrap">
+        <h2 class="reveal">Así de fácil</h2>
+        <p class="sub reveal">Tres pasos, de la pantalla a tu puerta.</p>
+        <ol class="how">
+          <li class="reveal"><span class="num">1</span><h3>Elige</h3><p>Explora los restaurantes de Riohacha o cuéntanos qué necesitas con Domi.</p></li>
+          <li class="reveal"><span class="num">2</span><h3>Pide</h3><p>Confirma tu pedido. Ves el costo del domicilio antes de pedir.</p></li>
+          <li class="reveal"><span class="num">3</span><h3>Recibe</h3><p>Sigues a tu domiciliario en el mapa y pagas en efectivo o datáfono al recibir.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- DOMI -->
+    <section class="section section--tint" id="domi">
+      <div class="wrap">
+        <p class="eyebrow reveal">Nuevo</p>
+        <h2 class="reveal">Domi: mándanos por lo que necesites</h2>
+        <p class="sub reveal">Un domiciliario te hace el mandado, sin pasar por un restaurante. Tú pones el precio máximo y apruebas la tarifa.</p>
+
+        <div class="domi">
+          <article class="card reveal">
+            <span class="card__emoji">🛒</span>
+            <h3>Domi de compra</h3>
+            <p>Dile qué comprar y dónde. Tu Domi lo compra y te lo trae. Pagas la factura real más su tarifa, en efectivo, al recibir.</p>
+            <p class="note">Hasta $100.000 por compra.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__emoji">📦</span>
+            <h3>Domi de recogida</h3>
+            <p>Recoge algo en un lugar (punto A) y entrégalo en otro (punto B): documentos, paquetes, encargos.</p>
+            <p class="note">Solo pagas la tarifa del Domi.</p>
+          </article>
+        </div>
+
+        <ul class="checks reveal">
+          <li>Tarifa desde $5.000. Tu Domi puede proponerte otro precio y tú decides si lo aceptas.</li>
+          <li>Seguimiento en vivo cuando va en camino.</li>
+          <li>Calificas a tu Domi al terminar.</li>
+        </ul>
+
+        <a class="btn btn--primary btn--lg reveal" href="https://domicilios-rouge.vercel.app/login" rel="noopener">Pide tu Domi</a>
+      </div>
+    </section>
+
+    <!-- PARA TI -->
+    <section class="section" id="para-ti">
+      <div class="wrap">
+        <h2 class="reveal">Una app, tres formas de usarla</h2>
+        <p class="sub reveal">Cada cuenta ve su propio panel. Un correo, un rol.</p>
+
+        <div class="roles">
+          <article class="card reveal">
+            <span class="card__emoji">🛍️</span>
+            <h3>Cliente</h3>
+            <ul>
+              <li>Restaurantes, carrito y pedidos</li>
+              <li>Favoritos y direcciones guardadas</li>
+              <li>Domi para tus mandados</li>
+            </ul>
+            <a class="btn btn--outline" href="https://domicilios-rouge.vercel.app/register?role=client" rel="noopener">Crear cuenta</a>
+          </article>
+          <article class="card reveal">
+            <span class="card__emoji">🍽️</span>
+            <h3>Restaurante</h3>
+            <ul>
+              <li>Recibe y gestiona pedidos con aviso sonoro</li>
+              <li>Tu menú con fotos, precios y disponibilidad</li>
+              <li>Abre y cierra tu local cuando quieras</li>
+            </ul>
+            <a class="btn btn--outline" href="https://domicilios-rouge.vercel.app/register?role=restaurant" rel="noopener">Registrar mi negocio</a>
+            <p class="note">Nuestro equipo revisa y aprueba cada restaurante.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__emoji">🛵</span>
+            <h3>Domiciliario</h3>
+            <ul>
+              <li>Ofertas de pedidos y de Domi en tu celular</li>
+              <li>Tú decides cuándo estás en turno</li>
+              <li>Cuadre del día y ubicación en vivo</li>
+            </ul>
+            <a class="btn btn--outline" href="https://domicilios-rouge.vercel.app/register?role=delivery" rel="noopener">Quiero repartir</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESCARGA -->
+    <section class="section section--dark" id="descargar">
+      <div class="wrap download">
+        <div class="reveal">
+          <h2>Lleva la app en tu celular</h2>
+          <p class="sub">Disponible para Android. También puedes usar la web sin instalar nada.</p>
+          <div class="cta-row">
+            <a class="btn btn--light btn--lg" href="https://drive.google.com/uc?export=download&id=1_hDaMj3peaLqgDT-K_RYjcl24B7l8fYa" rel="noopener">Descargar APK (≈15 MB)</a>
+            <a class="btn btn--ghost btn--lg" href="https://domicilios-rouge.vercel.app/login" rel="noopener">Usar en el navegador</a>
+          </div>
+          <p class="hint">¿No abre la descarga? <a href="https://drive.google.com/file/d/1_hDaMj3peaLqgDT-K_RYjcl24B7l8fYa/view?usp=sharing" rel="noopener">Ábrela desde Drive</a>.</p>
+        </div>
+
+        <ol class="install reveal">
+          <li><b>Descarga</b> el archivo en tu celular.</li>
+          <li><b>Ábrelo</b> y, si Android lo pide, permite instalar apps de este origen. Es normal: la app no viene de Play Store.</li>
+          <li><b>Entra</b> con tu cuenta o crea una nueva.</li>
+          <li class="install__tip"><b>Si eres domiciliario:</b> en Ajustes pon la batería en «Sin restricciones» y activa el inicio automático, para que te lleguen las ofertas con la pantalla apagada.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS -->
+    <section class="section" id="preguntas">
+      <div class="wrap faq">
+        <h2 class="reveal">Preguntas frecuentes</h2>
+        <details class="reveal"><summary>¿Cómo pago?</summary><p>Al recibir, en efectivo o con datáfono. Por ahora no hay pago en línea.</p></details>
+        <details class="reveal"><summary>¿Qué es un Domi?</summary><p>Un mandado con un domiciliario, sin restaurante. Puede ser una compra (te la trae) o una recogida (de un punto A a un punto B). La tarifa empieza en $5.000 y tú la apruebas.</p></details>
+        <details class="reveal"><summary>¿Cómo registro mi restaurante?</summary><p>Crea una cuenta de restaurante, completa los datos de tu negocio y elige tu tipo de comida. Nuestro equipo lo revisa y lo aprueba para que los clientes lo vean.</p></details>
+        <details class="reveal"><summary>¿Quiero repartir, qué necesito?</summary><p>Crear una cuenta de domiciliario, instalar la app y ponerte en turno. Las ofertas llegan a tu celular y tienes un par de minutos para aceptarlas.</p></details>
+        <details class="reveal"><summary>¿Es segura la app?</summary><p>Es la app oficial de Domicilios Riohacha. Android avisa al instalarla porque se descarga fuera de Play Store, no porque tenga algún problema.</p></details>
+        <details class="reveal"><summary>¿Dónde funciona?</summary><p>En Riohacha, La Guajira.</p></details>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final">
+      <div class="wrap final__inner reveal">
+        <h2>¿Qué se te antoja hoy?</h2>
+        <p>Pide en minutos o mándanos por lo que necesites.</p>
+        <a class="btn btn--light btn--lg" href="https://domicilios-rouge.vercel.app/login" rel="noopener">Pedir ahora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <div class="brand brand--light">
+        <img src="assets/app-icon-192.png" alt="" width="32" height="32" />
+        <span>Domicilios Riohacha</span>
+      </div>
+      <nav aria-label="Enlaces">
+        <a href="https://domicilios-rouge.vercel.app/login" rel="noopener">Iniciar sesión</a>
+        <a href="https://domicilios-rouge.vercel.app/register" rel="noopener">Crear cuenta</a>
+        <a href="https://wa.me/573205390468" rel="noopener">Soporte por WhatsApp</a>
+      </nav>
+      <p>© 2026 Domicilios Riohacha. Hecho en La Guajira.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
 </html>
